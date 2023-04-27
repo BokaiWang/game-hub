@@ -1,6 +1,6 @@
 import { CanceledError } from "axios";
 import { useEffect, useState } from "react";
-import apiClient from "../assets/apiClient";
+import apiClient from "../services/apiClient";
 
 export interface PlatForm {
   id: number;
