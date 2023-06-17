@@ -1,8 +1,9 @@
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { GameQuery } from "../App";
 import { FetchResponse } from "../services/apiClient";
 import APIClient from "../services/apiClient";
 import { Platform } from "./usePlatforms";
+import ms from "ms";
 export interface Game {
   id: number;
   name: string;
@@ -29,7 +30,7 @@ const useGames = (gameQuery: GameQuery) => {
       }),
     getNextPageParam: (lastPage, allPages) =>
       lastPage.next ? allPages.length + 1 : undefined,
-    staleTime: 60 * 60 * 1000,
+    staleTime: ms("24h"),
   });
 };
 
